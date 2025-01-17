@@ -1,0 +1,75 @@
+
+.login-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 420px;
+  background-color: #141414;
+  border: 1px solid rgb(133, 127, 127);
+  border-radius: 10px;
+  margin-top: 100px;
+}
+
+.login-form {
+  /* background: rgba(34, 32, 32, 0.1); */
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 400px;
+  height: 420px;
+
+}
+
+.login-form .logo {
+  width: 80px;
+  margin-bottom: 1rem;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+}
+
+.login-form button {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.login-form button.google-login {
+  background-color: #db4437;
+  display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+
+.login-form button.apple-login {
+  background-color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo{
+  width: 70px;
+  height: 70px;
+
+}
+.logo:hover{
+  color: gold;
+}
+
+.google{
+  margin: 0px 10px 0px 0px;
+}

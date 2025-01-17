@@ -1,0 +1,56 @@
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./Login.scss";
+
+function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+ const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+
+    if (!email || !password) return; 
+    setIsLoading(true); 
+    setTimeout(() => {
+      setIsLoading(false);
+      navigate("/dashboard");
+    }, 3000);
+  };
+
+  return (
+    <div className="login-screen">
+      <form onSubmit={handleSubmit} className="login-form">
+        <img src="./src/image/Ellipse 2.svg" alt="Logo" className="logo" />
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? "Connexion..." : "Se connecter"}
+        </button>
+        <button className="google-login" disabled={isLoading}>
+          <img src="./src/image/google.svg" alt="Google" className="google" />
+          <span className="text">Continue avec Google</span>
+        </button>
+        <button className="apple-login" disabled={isLoading}>
+          <img src="./src/image/apple.svg" alt="" className="google" />
+          Continue avec Apple
+        </button>
+      </form>
+    </div>
+  );
+}
+
+export default Login;
