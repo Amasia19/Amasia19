@@ -1,3 +1,5 @@
+ @import 'mixins';
+
 *{
   box-sizing: border-box;
   margin: 0;
@@ -6,12 +8,6 @@
 .dashboard {
   display: flex;
   height: 100%;
-}
-
-.sidebar {
-  width: 250px;
-  background-color: #202020;
-  padding: 1rem;
 }
 
 .profile {
@@ -32,6 +28,11 @@
   transform: scale(1.1);
 }
 
+.sidebar {
+  width: 250px;
+  background-color: #202020;
+  padding: 1rem;
+}
 .sidebar ul {
   list-style: none;
   padding: 0;
@@ -40,27 +41,28 @@
 .sidebar ul li {
   margin: 1rem 0;
   padding: 0.5rem;
-  color: #faf8f8;
+  color:$thirdcolor;
   cursor: pointer;
   border-radius: 10px;
-  background: linear-gradient(100deg, rgb(14, 14, 15) 0%, rgb(67, 66, 82) 61%);
+  background: $secondcolor;
   display: flex;
   align-items: center;
   height: 50px;
   transition: background-color 0.3s ease;
 }
-.sidebar ul li.active {
-  background: linear-gradient(100deg, rgb(14, 14, 15) 0%, rgb(82, 127, 145) 61%);
-}
-.sidebar ul li:hover {
-  background: linear-gradient(100deg, rgb(14, 14, 15) 0%, rgb(82, 127, 145) 61%);
-}
-
 .sidebar ul li a {
   margin-left: 10px;
   text-decoration: none;
-  color: #faf8f8;
+  color: $thirdcolor;
 }
+.sidebar ul li.active {
+  background:$primarycolor;
+}
+.sidebar ul li:hover {
+  background: $primarycolor;
+}
+
+
 
 .main-content {
   display: flex;
@@ -74,8 +76,13 @@
   justify-content: space-between;
   padding: 1rem;
   background-color: #1f1f1f;
-}
 
+}
+// @media screen and (max-width: 600px) {
+//   .header {
+//     float: none;
+//   }
+// }
 .search-bar {
   width: 376px;
   height: 37px;
@@ -87,19 +94,17 @@
 }
 
 .stats {
-  display: flex;
-  justify-content: space-around;
+  @include display(row, space-around, center, left);
   margin: 1rem 0;
 }
+
 
 .chart {
   width: 314px;
   height: 189px;
   background-color: #3b8b874b;
   border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include display;
 }
 
 
@@ -131,7 +136,7 @@ padding-top: 15px;
 .voir{
   display: flex;
   gap: 10px;
-  margin-left: 100px;
+  margin-left: 50px;
   margin-top: 10px;
   width: 30px;
 }
@@ -151,11 +156,12 @@ padding-top: 15px;
   top: 50px;
   right: 0;
   background-color: #000000;
-  color: #faf8f8;
+  color:$thirdcolor;
   border-radius: 8px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   width: 180px;
   padding: 10px 0;
+  z-index: 1000;
 }
 
 .menu-dropdown ul {
@@ -177,17 +183,17 @@ padding-top: 15px;
 
 .place-icon {
   width: 50px;
-  height: 38px;
+  height: 37px;
   background: rgb(43, 94, 141);
   border-radius: 0px 20px 20px 0px;
   outline: none;
-  
+  border: none;
 }
 
 .icon-search {
   width: 24px;
   height: 24px;
-  margin: 8px 10px 0px 10px;
+  margin: 8px 10px 0px 5px;
 }
 
 .profil-bar {
@@ -214,11 +220,11 @@ h2 {
 }
 .lien a{
   text-decoration: none;
-  color: #faf8f8;
+  color:$thirdcolor;
 }
 .p-out a{
   text-decoration: none;
-  color: #faf8f8;
+  color:$thirdcolor;
 }
 .notifications-popup {
   position: absolute;
@@ -267,8 +273,19 @@ h2 {
   margin-right: 8px;
 }
 .img-p{
-  // border: 1px solid black;
+ 
   width: 30px;
   height: 30px;
   border-radius: 100px;
+}
+.flex-chart{
+  display: flex;
+  gap: 60px;
+  margin: 10px 0px 10px 20px;
+}
+h3{
+  font-size: 24px;
+}
+.text-p{
+  margin-bottom: 5px;
 }
