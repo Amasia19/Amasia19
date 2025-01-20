@@ -1,18 +1,16 @@
 import React, { useState } from "react";
 import "./Dashboard.scss";
 import { Link, useLocation } from "react-router-dom";
-import Stats from "./data";
+import ChartsOverviewDemo from "./data";
+import Pie from "./Graph2";
+import BasicLineChart from "./Graph3";
 
 function Dashboard() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
   const [commentairesOpen, setCommentairesOpen] = useState(false);
   const location = useLocation();
-  const statsData = [
-    { title: "Top Vente", imageSrc: "./src/image/Frame 33.png" },
-    { title: "Top Product", imageSrc: "./src/image/top-product.png" },
-    { title: "Progrès", imageSrc: "./src/image/progress.png" },
-  ];
+  
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -25,12 +23,12 @@ function Dashboard() {
     setCommentairesOpen(!commentairesOpen);
   };
 
-  const isActive = (path: any) => location.pathname === path;
+  const isActive = (path:any) => location.pathname === path;
 
   return (
     <div className="dashboard">
       <aside className="sidebar">
-        <img src="./src/image/Ellipse 2.svg" alt="" className="logo" />
+       <Link to="/dashboard"><img src="./src/image/Ellipse 2.svg" alt="" className="logo" /></Link> 
         <div className="profile">
           <img src="./src/image/Profil.png" alt="Profile" className="profile-pic" />
           <h3>Dashboard</h3>
@@ -60,7 +58,7 @@ function Dashboard() {
       <main className="main-content">
         <header className="header">
           <div className="search">
-            <input type="text" placeholder="Rechercher" className="search-bar" />
+            <input type="Search" placeholder="Rechercher" className="search-bar" />
             <button className="place-icon">
               <img src="./src/image/search.svg" alt="Rechercher" className="icon-search" />
             </button>
@@ -97,13 +95,13 @@ function Dashboard() {
                     <div className="img-p">
                       <img src="./src/image/person1.jpeg" alt="Person" className="img-p" />
                     </div>
-                    <span aria-label="Wave"></span> Bienvenue sur le tableau <br /> de bord, pouvez-vous <br />enregistrer  votre mot de passe ?
+                    <span aria-label="Wave"></span>"L'interface est tellement fluide et bien pensée !"
                   </div>
                   <div className="commentaires">
                     <div className="img-p">
                       <img src="./src/image/person2.jpeg" alt="Person" className="img-p" />
                     </div>
-                    <span aria-label="Wave"></span> Bienvenue sur le tableau <br /> de bord, pouvez-vous <br />enregistrer  votre mot de passe ?
+                    <span aria-label="Wave"></span> "Ce tableau de bord m'aide à avoir une vision complète et rapide de mes objectifs. 
                   </div>
                   <div className="commentaires">
                     <div className="img-p">
@@ -177,8 +175,21 @@ function Dashboard() {
 
         <section>
           <h2>Dashboard</h2>
-          <Stats stats={statsData} />
-
+          <div className="flex-chart">
+          <div className="chart">
+          <ChartsOverviewDemo/>
+          <p className="text-p">Top Vente</p>
+          </div>
+         <div className="chart">
+         <Pie/>
+         <p className="text-p">Top Product</p>
+         </div>
+         <div className="chart">
+         <BasicLineChart/>
+         <p className="text-p">Progrès</p>
+         </div>
+         </div>
+        
         </section>
 
         <section className="sales-list">
@@ -194,7 +205,7 @@ function Dashboard() {
                 <p className="lien">
                   <Link to="/produit">Voir</Link>
                 </p>
-                <img src="./src/image/Arrow .svg" alt="" />
+                <Link to="/produit"><img src="./src/image/Arrow .svg" alt="" /></Link>
               </div>
             </div>
             <div className="product">
@@ -207,7 +218,7 @@ function Dashboard() {
                 <p className="lien">
                   <Link to="/produit">Voir</Link>
                 </p>
-                <img src="./src/image/Arrow .svg" alt="" />
+                <Link to="/produit"><img src="./src/image/Arrow .svg" alt="" /></Link>
               </div>
             </div>
             <div className="product">
@@ -220,7 +231,7 @@ function Dashboard() {
                 <p className="lien">
                   <Link to="/produit">Voir</Link>
                 </p>
-                <img src="./src/image/Arrow .svg" alt="" />
+                <Link to="/produit"><img src="./src/image/Arrow .svg" alt="" /></Link>
               </div>
             </div>
             <div className="product">
@@ -233,7 +244,7 @@ function Dashboard() {
                 <p className="lien">
                   <Link to="/produit">Voir</Link>
                 </p>
-                <img src="./src/image/Arrow .svg" alt="" />
+                <Link to="/produit"><img src="./src/image/Arrow .svg" alt="" /></Link>
               </div>
             </div>
             <div className="product">
@@ -246,7 +257,7 @@ function Dashboard() {
                 <p className="lien">
                   <Link to="/produit">Voir</Link>
                 </p>
-                <img src="./src/image/Arrow .svg" alt="" />
+                 <Link to="/produit"><img src="./src/image/Arrow .svg" alt="" /></Link>
               </div>
             </div>
           </div>
