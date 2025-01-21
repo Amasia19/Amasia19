@@ -162,7 +162,7 @@ function Store() {
               <img src="./src/image/commentaire.svg" alt="Commentaires" />
               {commentairesOpen && (
                 <div className="commentaires-popup">
-                  {/* Commentaire content */}
+               
                 </div>
               )}
             </div>
@@ -203,7 +203,7 @@ function Store() {
           </div>
         </header>
 
-        <section>
+        <section >
           <h4>Store</h4>
           <div className="store-products">
             {products.map((product) => (
