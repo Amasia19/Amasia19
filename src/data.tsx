@@ -10,18 +10,18 @@ export default function ChartsOverviewDemo() {
     { data: [45, 30], color: '#30b130' },
   ]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setData((prevData) =>
-        prevData.map((series) => ({
-          ...series,
-          data: series.data.map((value) => value + Math.floor(Math.random() * 5 - 2)), 
-        }))
-      );
-    }, 2000); 
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setData((prevData) =>
+  //       prevData.map((series) => ({
+  //         ...series,
+  //         data: series.data.map((value) => value + Math.floor(Math.random() * 5 - 2)), 
+  //       }))
+  //     );
+  //   }, 2000); 
 
-    return () => clearInterval(interval);
-  }, []);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   return (
     <BarChart
