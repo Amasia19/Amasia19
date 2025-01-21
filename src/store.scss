@@ -1,3 +1,6 @@
+// .section{
+//   height: 100vh;
+// }
 .store-products {
     display: flex;
     flex-wrap: wrap;
@@ -61,6 +64,7 @@
   }
   .confirmation{
     margin: 20px 0px 0px 50px;
+    width: 300px;
     
   }
   .oui-btn{
