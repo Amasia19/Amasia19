@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Dashboard.scss";
+import "../style/Dashboard.scss";
 import { Link, useLocation } from "react-router-dom";
 import ChartsOverviewDemo from "./data";
 import Pie from "./Graph2";
