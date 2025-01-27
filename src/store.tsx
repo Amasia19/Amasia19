@@ -162,7 +162,54 @@ function Store() {
               <img src="./src/image/commentaire.svg" alt="Commentaires" />
               {commentairesOpen && (
                 <div className="commentaires-popup">
-               
+                  <div className="commentaires">
+                    <div className="img-p">
+                      <img src="./src/image/person.jpeg" alt="Person" className="img-p" />
+                    </div>
+                    <span role="img" aria-label="Wave"></span> J'adore cette site 👋
+                  </div>
+                  <div className="commentaires">
+                    <div className="img-p">
+                      <img src="./src/image/person1.jpeg" alt="Person" className="img-p" />
+                    </div>
+                    <span aria-label="Wave"></span>"L'interface est tellement fluide et bien pensée !"
+                  </div>
+                  <div className="commentaires">
+                    <div className="img-p">
+                      <img src="./src/image/person2.jpeg" alt="Person" className="img-p" />
+                    </div>
+                    <span aria-label="Wave"></span> "Ce tableau de bord m'aide à avoir une vision complète et rapide de mes objectifs. 
+                  </div>
+                  <div className="commentaires">
+                    <div className="img-p">
+                      <img src="./src/image/person3.jpeg" alt="Person" className="img-p" />
+                    </div>
+                    <span aria-label="Wave"></span> Bienvenue sur le tableau <br /> de bord, pouvez-vous <br />enregistrer  votre mot de passe ?
+                  </div>
+                  <div className="commentaires">
+                    <div className="img-p">
+                      <img src="./src/image/person4.jpeg" alt="Person" className="img-p" />
+                    </div>
+                    <span aria-label="Wave"></span> Bienvenue sur le tableau <br /> de bord, pouvez-vous <br />enregistrer  votre mot de passe ?
+                  </div>
+                  <div className="commentaires">
+                    <div className="img-p">
+                      <img src="./src/image/person5.jpeg" alt="Person" className="img-p" />
+                    </div>
+                    <span aria-label="Wave"></span> Bienvenue sur le tableau <br /> de bord, pouvez-vous <br />enregistrer  votre mot de passe ?
+                  </div>
+                  <div className="commentaires">
+                    <div className="img-p">
+                      <img src="./src/image/person6.jpeg" alt="Person" className="img-p" />
+                    </div>
+                    <span aria-label="Wave"></span> Bienvenue sur le tableau <br /> de bord, pouvez-vous <br />enregistrer  votre mot de passe ?
+                  </div>
+                  <div className="commentaires">
+                    <div className="img-p">
+                      <img src="./src/image/person7.jpeg" alt="Person" className="img-p" />
+                    </div>
+                    <span aria-label="Wave"></span> Bienvenue sur le tableau <br /> de bord, pouvez-vous <br />enregistrer  votre mot de passe ?
+                  </div>
                 </div>
               )}
             </div>
@@ -268,8 +315,8 @@ function Store() {
                     setNewProduct({ ...newProduct, image: e.target.value })
                   }
                 />
-                <button type="submit">Créer</button>
-                <button type="button" onClick={() => setCreateMode(false)}>
+                <button className="create-btn" type="submit">Créer</button>
+                <button className="skip-btn" type="button" onClick={() => setCreateMode(false)}>
                   Annuler
                 </button>
               </form>
