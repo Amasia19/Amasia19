@@ -6,7 +6,67 @@ function Produit() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
   const [commentairesOpen, setCommentairesOpen] = useState(false);
-  const [language, setLanguage] = useState("fr"); // Language state
+  const [language, setLanguage] = useState("fr");
+
+  const translations = {
+    fr: {
+      produits: "Produits",
+      dashboard: "Tableau de bord",
+      rechercher: "Rechercher",
+      parametres: "Paramètres",
+      apropos: "À propos",
+      laptop:"Ordinateur",
+      langue: "Langue",
+      deconnexion: "Se déconnecter",
+      create: "Créer",
+      produit: "Produit",
+      client:"Client",
+      nom: "Nom",
+      prix: "Prix",
+      type: "Type",
+      stock: "Stock",
+      noStock: "Pas de stock",
+      store:"Magasin",
+    },
+    en: {
+      produits: "Products",
+      dashboard: "Dashboard",
+      rechercher: "Search",
+      parametres: "Settings",
+      apropos: "About",
+      langue: "Language",
+      deconnexion: "Logout",
+      create: "Create",
+      produit: "Product",
+      client:"Customer",
+      nom: "Name",
+      prix: "Price",
+      type: "Type",
+      stock: "Stock",
+      noStock: "Out of Stock",
+      laptop:"Laptop",
+      store:"Store",
+    },
+    mg: {
+      produits: "Vokatra",
+      dashboard: "Tabilao",
+      rechercher: "Tadiavo",
+      parametres: "Fanamboarana",
+      apropos: "Momba",
+      laptop:"Ordinateur",
+      langue: "Fiteny",
+      deconnexion: "Miala",
+      create: "Mamokatra",
+      produit: "Vokatra",
+      client:"Mpanjifa",
+      nom: "Anarana",
+      prix: "Vidiny",
+      type: "Karazana",
+      stock: "Tahiry",
+      noStock: "Lany Tahiry",
+      store:"Fivarotana",
+    },
+  };
 
   const products = [
     {
@@ -67,6 +127,8 @@ function Produit() {
     setLanguage(event.target.value);
   };
 
+  const t = translations[language];
+
   return (
     <div className="dashboard">
       <aside className="sidebar">
@@ -75,26 +137,26 @@ function Produit() {
         </Link>
         <div className="profile">
           <img src="./src/image/produit.jpeg" alt="Profile" className="profile-pic" />
-          <h3>Produits</h3>
+          <h3>{t.produits}</h3>
         </div>
         <nav>
           <ul>
             <li>
               <img src="./src/image/graph.svg" alt="" />
-              <Link to="/Dashboard">Dashboard</Link>
+              <Link to="/Dashboard">{t.dashboard}</Link>
             </li>
             <li>
               <img src="./src/image/produit.svg" alt="" />
-              <Link to="/produit">Produit</Link>
+              <Link to="/produit">{t.produits}</Link>
             </li>
-            <li>
-              <img src="./src/image/clients.svg" alt="" />
-              <Link to="/client">Client</Link>
-            </li>
-            <li>
-              <img src="./src/image/store.svg" alt="" />
-              <Link to="/store">Store</Link>
-            </li>
+             <li>
+                          <img src="./src/image/clients.svg" alt="" />
+                          <Link to="/client">{t.client}</Link>
+                        </li>
+                        <li>
+                          <img src="./src/image/store.svg" alt="" />
+                          <Link to="/store">{t.store}</Link>
+                        </li>
           </ul>
         </nav>
       </aside>
@@ -102,9 +164,9 @@ function Produit() {
       <main className="main-content">
         <header className="header">
           <div className="search">
-            <input type="text" placeholder="Rechercher" className="search-bar" />
+            <input type="text" placeholder={t.rechercher} className="search-bar" />
             <button className="place-icon">
-              <img src="./src/image/search.svg" alt="Rechercher" className="icon-search" />
+              <img src="./src/image/search.svg" alt={t.rechercher} className="icon-search" />
             </button>
           </div>
 
@@ -129,7 +191,54 @@ function Produit() {
               <img src="./src/image/commentaire.svg" alt="Commentaires" />
               {commentairesOpen && (
                 <div className="commentaires-popup">
-                 
+                  <div className="commentaires">
+                    <div className="img-p">
+                      <img src="./src/image/person.jpeg" alt="Person" className="img-p" />
+                    </div>
+                    <span role="img" aria-label="Wave"></span> J'adore cette site 👋
+                  </div>
+                  <div className="commentaires">
+                    <div className="img-p">
+                      <img src="./src/image/person1.jpeg" alt="Person" className="img-p" />
+                    </div>
+                    <span aria-label="Wave"></span>"L'interface est tellement fluide et bien pensée !"
+                  </div>
+                  <div className="commentaires">
+                    <div className="img-p">
+                      <img src="./src/image/person2.jpeg" alt="Person" className="img-p" />
+                    </div>
+                    <span aria-label="Wave"></span> "Ce tableau de bord m'aide à avoir une vision complète et rapide de mes objectifs. 
+                  </div>
+                  <div className="commentaires">
+                    <div className="img-p">
+                      <img src="./src/image/person3.jpeg" alt="Person" className="img-p" />
+                    </div>
+                    <span aria-label="Wave"></span> Bienvenue sur le tableau <br /> de bord, pouvez-vous <br />enregistrer  votre mot de passe ?
+                  </div>
+                  <div className="commentaires">
+                    <div className="img-p">
+                      <img src="./src/image/person4.jpeg" alt="Person" className="img-p" />
+                    </div>
+                    <span aria-label="Wave"></span> Bienvenue sur le tableau <br /> de bord, pouvez-vous <br />enregistrer  votre mot de passe ?
+                  </div>
+                  <div className="commentaires">
+                    <div className="img-p">
+                      <img src="./src/image/person5.jpeg" alt="Person" className="img-p" />
+                    </div>
+                    <span aria-label="Wave"></span> Bienvenue sur le tableau <br /> de bord, pouvez-vous <br />enregistrer  votre mot de passe ?
+                  </div>
+                  <div className="commentaires">
+                    <div className="img-p">
+                      <img src="./src/image/person6.jpeg" alt="Person" className="img-p" />
+                    </div>
+                    <span aria-label="Wave"></span> Bienvenue sur le tableau <br /> de bord, pouvez-vous <br />enregistrer  votre mot de passe ?
+                  </div>
+                  <div className="commentaires">
+                    <div className="img-p">
+                      <img src="./src/image/person7.jpeg" alt="Person" className="img-p" />
+                    </div>
+                    <span aria-label="Wave"></span> Bienvenue sur le tableau <br /> de bord, pouvez-vous <br />enregistrer  votre mot de passe ?
+                  </div>
                 </div>
               )}
             </div>
@@ -147,27 +256,25 @@ function Produit() {
                 <div className="menu-dropdown">
                   <ul>
                     <li className="out">
-                      <img src="./src/image/setting.svg" alt="Paramètres" />
-                      Paramètres
+                      <img src="./src/image/setting.svg" alt={t.parametres} />
+                      {t.parametres}
                     </li>
                     <li className="out">
-                      <img src="./src/image/About.svg" alt="À propos" />
-                      À propos
+                      <img src="./src/image/About.svg" alt={t.apropos} />
+                      {t.apropos}
                     </li>
-
                     <li className="out">
-                      <img src="./src/image/langue.svg" alt="Langue" />
+                      <img src="./src/image/langue.svg" alt={t.langue} />
                       <select onChange={handleLanguageChange} value={language} className="language-select">
                         <option value="fr">Français</option>
                         <option value="en">English</option>
                         <option value="mg">Malagasy</option>
                       </select>
                     </li>
-
                     <li className="out">
-                      <img src="./src/image/out.svg" alt="Déconnexion" className="icon-log" />
-                      <p className="p-out" onClick={() => alert("Êtes-vous sûr de vouloir vous déconnecter ?")}>
-                        <Link to="/login">Se déconnecter</Link>
+                      <img src="./src/image/out.svg" alt={t.deconnexion} className="icon-log" />
+                      <p className="p-out">
+                        <Link to="/login">{t.deconnexion}</Link>
                       </p>
                     </li>
                   </ul>
@@ -178,19 +285,19 @@ function Produit() {
         </header>
 
         <section>
-          <h2>Produits</h2>
+          <h2>{t.produits}</h2>
           <div className="flex-btn">
             <div></div>
-            <button className="create-button">Create</button>
+            <button className="create-button">{t.create}</button>
           </div>
           <table className="product-table">
             <thead>
               <tr>
-                <th>Produit</th>
-                <th>Name</th>
-                <th>Prix</th>
-                <th>Type</th>
-                <th>Stock</th>
+                <th>{t.produit}</th>
+                <th>{t.nom}</th>
+                <th>{t.prix}</th>
+                <th>{t.type}</th>
+                <th>{t.stock}</th>
               </tr>
             </thead>
             <tbody>
@@ -203,11 +310,7 @@ function Produit() {
                   <td>{product.price}</td>
                   <td>{product.type}</td>
                   <td>
-                    {product.stock > 0 ? (
-                      product.stock
-                    ) : (
-                      <span className="no-stock">No Stock</span>
-                    )}
+                    {product.stock > 0 ? product.stock : <span className="no-stock">{t.noStock}</span>}
                   </td>
                 </tr>
               ))}
