@@ -1,11 +1,11 @@
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "./Login";
-import Dashboard from "./Dashboard";
+import Login from "./components/Login";
+import Dashboard from "./components/Dashboard";
 import "./App.scss";
-import Produit from "./produit";
-import Client from "./client";
-import Store from "./store";
+import Produit from "./components/produit";
+import Client from "./components/client";
+import Store from "./components/store";
 
 function App() {
   return (
