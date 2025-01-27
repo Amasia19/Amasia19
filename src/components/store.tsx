@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./store.scss";
+import "../style/store.scss";
 
 type StockType = {
   id: number;
@@ -172,19 +172,19 @@ function Store() {
                     <div className="img-p">
                       <img src="./src/image/person1.jpeg" alt="Person" className="img-p" />
                     </div>
-                    <span aria-label="Wave"></span>"L'interface est tellement fluide et bien pensée !"
+                    <span aria-label="Wave"></span>"L'interface est tellement fluide et bien pensée 😊!"
                   </div>
                   <div className="commentaires">
                     <div className="img-p">
                       <img src="./src/image/person2.jpeg" alt="Person" className="img-p" />
                     </div>
-                    <span aria-label="Wave"></span> "Ce tableau de bord m'aide à avoir une vision complète et rapide de mes objectifs. 
+                    <span aria-label="Wave"></span> "Ce tableau de bord m'aide à avoir une vision complète et rapide de mes objectifs😊. 
                   </div>
                   <div className="commentaires">
                     <div className="img-p">
                       <img src="./src/image/person3.jpeg" alt="Person" className="img-p" />
                     </div>
-                    <span aria-label="Wave"></span> Bienvenue sur le tableau <br /> de bord, pouvez-vous <br />enregistrer  votre mot de passe ?
+                    <span aria-label="Wave"></span> Bienvenue sur le tableau <br /> de bord, pouvez-vous <br />enregistrer  votre mot de passe😎 ?
                   </div>
                   <div className="commentaires">
                     <div className="img-p">
