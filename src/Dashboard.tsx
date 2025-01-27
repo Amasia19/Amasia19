@@ -174,7 +174,10 @@ function Dashboard() {
         </header>
 
         <section>
+          <div className="flex-text">
           <h2>Dashboard</h2>
+          <p className="p-main">CA:100M Ar</p>
+          </div>
           <div className="flex-chart">
           <div className="chart">
           <ChartsOverviewDemo/>
@@ -212,7 +215,7 @@ function Dashboard() {
               <img src="./src/image/phone.png" alt="" />
               <div className="pgh-card">
                 <p>10 phones</p>
-                <p>8M Ar</p>
+                <p>5M Ar</p>
               </div>
               <div className="voir">
                 <p className="lien">
@@ -225,7 +228,7 @@ function Dashboard() {
               <img src="./src/image/casque.png" alt="" />
               <div className="pgh-card">
                 <p>15Casques</p>
-                <p>5M Ar</p>
+                <p>100000 Ar</p>
               </div>
               <div className="voir">
                 <p className="lien">
@@ -238,7 +241,7 @@ function Dashboard() {
               <img src="./src/image/ecouteur.png" alt="" />
               <div className="pgh-card">
                 <p>20Écouteurs</p>
-                <p>3M Ar</p>
+                <p>200000 Ar</p>
               </div>
               <div className="voir">
                 <p className="lien">
@@ -251,7 +254,7 @@ function Dashboard() {
               <img src="./src/image/sub.png" alt="" />
               <div className="pgh-card">
                 <p>8 Sub</p>
-                <p>6M Ar</p>
+                <p>1M Ar</p>
               </div>
               <div className="voir">
                 <p className="lien">
