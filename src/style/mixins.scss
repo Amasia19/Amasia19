@@ -1,0 +1,44 @@
+
+$primarycolor: linear-gradient(100deg, rgb(14, 14, 15) 0%, rgb(82, 127, 145) 61%);
+$secondcolor: linear-gradient(100deg, rgb(14, 14, 15) 0%, rgb(67, 66, 82) 61%);
+$thirdcolor: white;
+
+// Mixin pour la flexbox
+@mixin display($direction: column, $justify: center, $align: center, $text: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  text-align: $text;
+}
+
+// Mixin pour les transitions
+@mixin transition($property: all, $duration: 0.3s, $timing: ease) {
+  transition: $property $duration $timing;
+}
+
+// Mixin pour les bordures arrondies
+@mixin border-radius($radius: 8px) {
+  border-radius: $radius;
+}
+
+// Mixin pour les ombres de boîte
+@mixin box-shadow($x: 0px, $y: 4px, $blur: 8px, $color: rgba(0, 0, 0, 0.2)) {
+  box-shadow: $x $y $blur $color;
+}
+
+// Mixin pour la couleur de fond
+@mixin background-color($color) {
+  background-color: $color;
+}
+
+// Mixin pour un taille fixe
+@mixin fixed-size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+// Mixin pour un padding spécifique
+@mixin padding($top, $right: 0, $bottom: 0, $left: 0) {
+  padding: $top $right $bottom $left;
+}

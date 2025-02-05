@@ -1,0 +1,116 @@
+// .section{
+//   height: 100vh;
+// }
+.store-products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px 0px 0px 50px;
+  }
+  
+  .product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  .product-image {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .stock {
+    font-size: 14px;
+    color: #888;
+  }
+  
+  .buy-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .buy-button.out-of-stock {
+    background-color: #f44336;
+    cursor: not-allowed;
+  }
+  
+  .buy-button:hover {
+    background-color: #45a049;
+  }
+  .manage-content-button{
+     background-color: #376c85;
+     color: white;
+     padding: 10px;
+     border: none;
+     border-radius: 4px;
+     cursor: pointer;
+     margin-top: 5px;
+  }
+  .confirmation{
+    margin: 20px 0px 0px 50px;
+    width: 300px;
+    
+  }
+  .oui-btn{
+    background-color: #45a049;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 5px;
+
+  }
+  .non-btn{
+    background-color: #a04545;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+  margin-left: 20px;
+  }
+ 
+  h4{
+    margin-left: 50px;
+    font-size: 24px;
+     margin-top: 20px;
+  }
+  .create-product-section{
+    margin: 0px 0px 0px 50px;
+  }
+  .create-product-section input{
+   background: #bab7c0;
+   height: 20px;
+   padding-left: 10px;
+   margin-top: 5px;
+  }
+  .create-btn{
+    background: #25742b;
+     border-radius: 5px;
+     width: 70px;
+     color: white;
+   }
+   .skip-btn{
+    background: #742525;
+     border-radius: 5px;
+     width: 70px;
+     color: white;
+   }
