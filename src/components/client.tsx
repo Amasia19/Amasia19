@@ -87,7 +87,7 @@ function Client() {
           <img src="./src/image/Ellipse 2.svg" alt="" className="logo" />
         </Link>
         <div className="profile">
-          <img src="./src/image/client.png" alt="Profile" className="profile-pic" />
+          <img src="./src/image/Client.jpg" alt="Profile" className="profile-pic" />
           <h3>Clients</h3>
         </div>
         <nav>
