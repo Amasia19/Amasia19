@@ -1,12 +1,29 @@
 import "../style/produit.scss";
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
+import axios from 'axios';
+
+type Product = {
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+  images: string;
+  category: string;
+  stock: number;
+};
+
+type ProductsResponse = {
+  products: Product[];
+};
 
 function Produit() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
   const [commentairesOpen, setCommentairesOpen] = useState(false);
   const [language, setLanguage] = useState("fr");
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
 
   const translations = {
     fr: {
@@ -15,18 +32,18 @@ function Produit() {
       rechercher: "Rechercher",
       parametres: "Paramètres",
       apropos: "À propos",
-      laptop:"Ordinateur",
+      laptop: "Ordinateur",
       langue: "Langue",
       deconnexion: "Se déconnecter",
       create: "Créer",
       produit: "Produit",
-      client:"Client",
+      client: "Client",
       nom: "Nom",
       prix: "Prix",
       type: "Type",
       stock: "Stock",
       noStock: "Pas de stock",
-      store:"Magasin",
+      store: "Magasin",
     },
     en: {
       produits: "Products",
@@ -38,14 +55,13 @@ function Produit() {
       deconnexion: "Logout",
       create: "Create",
       produit: "Product",
-      client:"Customer",
+      client: "Customer",
       nom: "Name",
       prix: "Price",
       type: "Type",
       stock: "Stock",
       noStock: "Out of Stock",
-      laptop:"Laptop",
-      store:"Store",
+      store: "Store",
     },
     mg: {
       produits: "Vokatra",
@@ -53,63 +69,35 @@ function Produit() {
       rechercher: "Tadiavo",
       parametres: "Fanamboarana",
       apropos: "Momba",
-      laptop:"Ordinateur",
+      laptop: "Ordinateur",
       langue: "Fiteny",
       deconnexion: "Miala",
       create: "Mamokatra",
       produit: "Vokatra",
-      client:"Mpanjifa",
+      client: "Mpanjifa",
       nom: "Anarana",
       prix: "Vidiny",
       type: "Karazana",
       stock: "Tahiry",
       noStock: "Lany Tahiry",
-      store:"Fivarotana",
+      store: "Fivarotana",
     },
   };
 
-  const products = [
-    {
-      id: 1,
-      name: "Laptop",
-      price: "$1000",
-      type: "Electronics",
-      stock: 12,
-      image: "./src/image/laptop.png",
-    },
-    {
-      id: 2,
-      name: "Smartphone",
-      price: "$700",
-      type: "Electronics",
-      stock: 0,
-      image: "./src/image/phone.png",
-    },
-    {
-      id: 3,
-      name: "Earbuds",
-      price: "$50",
-      type: "Accessories",
-      stock: 10,
-      image: "./src/image/casque.png",
-    },
-    {
-      id: 4,
-      name: "Ecouteur",
-      price: "$50",
-      type: "Accessories",
-      stock: 20,
-      image: "./src/image/ecouteur.png",
-    },
-    {
-      id: 5,
-      name: "Subwoofer",
-      price: "$50",
-      type: "Accessories",
-      stock: 5,
-      image: "./src/image/sub.png",
-    },
-  ];
+  const fetchProducts = async () => {
+    try {
+      const response = await axios.get<ProductsResponse>('https://dummyjson.com/products/search?q=phone&limit=10&skip'); // 
+      setProducts(response.data.products);
+      setLoading(false);
+    } catch (error) {
+      console.error('Error fetching products:', error);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -123,11 +111,13 @@ function Produit() {
     setCommentairesOpen(!commentairesOpen);
   };
 
-  const handleLanguageChange = (event:any) => {
+  const handleLanguageChange = (event: any) => {
     setLanguage(event.target.value);
   };
 
   const t = translations[language];
+  const isActive = (path: any) => location.pathname === path;
+
 
   return (
     <div className="dashboard">
@@ -145,18 +135,19 @@ function Produit() {
               <img src="./src/image/graph.svg" alt="" />
               <Link to="/Dashboard">{t.dashboard}</Link>
             </li>
-            <li>
+            
+            <li className={isActive("/produit") ? "active" : ""}>
               <img src="./src/image/produit.svg" alt="" />
               <Link to="/produit">{t.produits}</Link>
             </li>
-             <li>
-                          <img src="./src/image/clients.svg" alt="" />
-                          <Link to="/client">{t.client}</Link>
-                        </li>
-                        <li>
-                          <img src="./src/image/store.svg" alt="" />
-                          <Link to="/store">{t.store}</Link>
-                        </li>
+            <li>
+              <img src="./src/image/clients.svg" alt="" />
+              <Link to="/client">{t.client}</Link>
+            </li>
+            <li>
+              <img src="./src/image/store.svg" alt="" />
+              <Link to="/store">{t.store}</Link>
+            </li>
           </ul>
         </nav>
       </aside>
@@ -207,7 +198,7 @@ function Produit() {
                     <div className="img-p">
                       <img src="./src/image/person2.jpeg" alt="Person" className="img-p" />
                     </div>
-                    <span aria-label="Wave"></span> "Ce tableau de bord m'aide à avoir une vision complète et rapide de mes objectifs. 
+                    <span aria-label="Wave"></span> "Ce tableau de bord m'aide à avoir une vision complète et rapide de mes objectifs.
                   </div>
                   <div className="commentaires">
                     <div className="img-p">
@@ -285,9 +276,9 @@ function Produit() {
         </header>
 
         <section>
-          <h2>{t.produits}</h2>
+         
           <div className="flex-btn">
-            <div></div>
+          <h2>{t.produits}</h2>
             <button className="create-button">{t.create}</button>
           </div>
           <table className="product-table">
@@ -301,19 +292,25 @@ function Produit() {
               </tr>
             </thead>
             <tbody>
-              {products.map((product) => (
-                <tr key={product.id}>
-                  <td>
-                    <img src={product.image} alt={product.name} className="product-image" />
-                  </td>
-                  <td>{product.name}</td>
-                  <td>{product.price}</td>
-                  <td>{product.type}</td>
-                  <td>
-                    {product.stock > 0 ? product.stock : <span className="no-stock">{t.noStock}</span>}
-                  </td>
+              {loading ? (
+                <tr>
+                  <td colSpan={5}>Loading...</td>
                 </tr>
-              ))}
+              ) : (
+                products.map((product) => (
+                  <tr key={product.id}>
+                    <td>
+                      <img src={product.images[0]} alt={product.title} className="product-image" />
+                    </td>
+                    <td>{product.title}</td>
+                    <td>{product.price}</td>
+                    <td>{product.category}</td>
+                    <td>
+                      {product.stock > 0 ? product.stock : <span className="no-stock">{t.noStock}</span>}
+                    </td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </section>

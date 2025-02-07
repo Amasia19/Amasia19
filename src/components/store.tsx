@@ -1,74 +1,56 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "../style/store.scss";
 
-type StockType = {
+type Product = {
   id: number;
-  name: string;
-  price: string;
+  title: string;
+  description: string;
+  price: number;
+  images: string;
+  category: string;
   stock: number;
-  image: string;
+};
+
+type ProductsResponse = {
+  products: Product[];
 };
 
 function Store() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
   const [commentairesOpen, setCommentairesOpen] = useState(false);
-  const [products, setProducts] = useState<StockType[]>([
-    {
-      id: 1,
-      name: "Laptop",
-      price: "$1000",
-      stock: 12,
-      image: "./src/image/laptop.png",
-    },
-    {
-      id: 2,
-      name: "Smartphone",
-      price: "$700",
-      stock: 0,
-      image: "./src/image/phone.png",
-    },
-    {
-      id: 3,
-      name: "Earbuds",
-      price: "$50",
-      stock: 10,
-      image: "./src/image/casque.png",
-    },
-    {
-      id: 4,
-      name: "Ecouteur",
-      price: "$50",
-      stock: 20,
-      image: "./src/image/ecouteur.png",
-    },
-    {
-      id: 5,
-      name: "Subwoofer",
-      price: "$50",
-      stock: 5,
-      image: "./src/image/sub.png",
-    },
-  ]);
-
+  const [products, setProducts] = useState<Product[]>([]);
   const [confirmationVisible, setConfirmationVisible] = useState(false);
-  const [currentProduct, setCurrentProduct] = useState<StockType | null>(null);
-  const [createMode, setCreateMode] = useState(false);
-  const [newProduct, setNewProduct] = useState({
-    id: 0,
-    name: "",
-    price: "",
-    stock: 0,
-    image: "",
-  });
+  const [currentProduct, setCurrentProduct] = useState<Product | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [offset, setOffset] = useState(0);
+  const shortenTitle = (title: string) => title.split(" ").slice(0, 2).join(" ");
+
+  useEffect(() => {
+    if (loading) return;
+    setLoading(true);
+    fetch(`https://dummyjson.com/products/search?q=phone&limit=8&skip=${offset}`)
+      .then((response) => response.json())
+      .then((data: ProductsResponse) => {
+        setProducts((prev) => [...prev, ...data.products].slice(0, 10)); 
+        setHasMore(data.products.length === 10);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Erreur:", error);
+        setLoading(false);
+      });
+  }, [offset]);
 
   const handleDeleteProduct = (id: number) => {
     const updatedProducts = products.filter((product) => product.id !== id);
     setProducts(updatedProducts);
   };
 
-  const handleBuyProduct = (product: StockType) => {
+  const handleBuyProduct = (product: Product) => {
     setCurrentProduct(product);
     setConfirmationVisible(true);
   };
@@ -89,17 +71,11 @@ function Store() {
     setConfirmationVisible(false);
   };
 
-  const handleCreateProduct = () => {
-    const newId = products.length ? products[products.length - 1].id + 1 : 1;
-    const productToAdd = { ...newProduct, id: newId };
-    setProducts([...products, productToAdd]);
-    setCreateMode(false);
-    setNewProduct({ id: 0, name: "", price: "", stock: 0, image: "" });
-  };
-
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const toggleNotifications = () => setNotificationsOpen(!notificationsOpen);
   const toggleCommentaires = () => setCommentairesOpen(!commentairesOpen);
+  
+  const isActive = (path: any) => location.pathname === path;
 
   return (
     <div className="dashboard">
@@ -113,19 +89,19 @@ function Store() {
         </div>
         <nav>
           <ul>
-            <li>
-              <img src="./src/image/graph.svg" alt="" />
-              <Link to="/Dashboard">Dashboard</Link>
-            </li>
-            <li>
-              <img src="./src/image/produit.svg" alt="" />
-              <Link to="/produit">Produit</Link>
-            </li>
-            <li>
-              <img src="./src/image/clients.svg" alt="" />
-              <Link to="/client">Client</Link>
-            </li>
-            <li>
+             <li className={isActive("/Dashboard") ? "active" : ""}>
+                          <img src="./src/image/graph.svg" alt="Graphique" />
+                          <Link to="/Dashboard">Dashboard</Link>
+                        </li>
+                        <li className={isActive("/produit") ? "active" : ""}>
+                          <img src="./src/image/produit.svg" alt="Produit" />
+                          <Link to="/produit">Produit</Link>
+                        </li>
+                        <li className={isActive("/client") ? "active" : ""}>
+                          <img src="./src/image/clients.svg" alt="Clients" />
+                          <Link to="/client">Client</Link>
+                        </li>
+            <li className={isActive("/store") ? "active" : ""}>
               <img src="./src/image/store.svg" alt="" />
               <Link to="/store">Store</Link>
             </li>
@@ -166,50 +142,9 @@ function Store() {
                     <div className="img-p">
                       <img src="./src/image/person.jpeg" alt="Person" className="img-p" />
                     </div>
-                    <span role="img" aria-label="Wave"></span> J'adore cette site 👋
+                    <span role="img" aria-label="Wave"></span> J'adore ce site 👋
                   </div>
-                  <div className="commentaires">
-                    <div className="img-p">
-                      <img src="./src/image/person1.jpeg" alt="Person" className="img-p" />
-                    </div>
-                    <span aria-label="Wave"></span>"L'interface est tellement fluide et bien pensée 😊!"
-                  </div>
-                  <div className="commentaires">
-                    <div className="img-p">
-                      <img src="./src/image/person2.jpeg" alt="Person" className="img-p" />
-                    </div>
-                    <span aria-label="Wave"></span> "Ce tableau de bord m'aide à avoir une vision complète et rapide de mes objectifs😊. 
-                  </div>
-                  <div className="commentaires">
-                    <div className="img-p">
-                      <img src="./src/image/person3.jpeg" alt="Person" className="img-p" />
-                    </div>
-                    <span aria-label="Wave"></span> Bienvenue sur le tableau <br /> de bord, pouvez-vous <br />enregistrer  votre mot de passe😎 ?
-                  </div>
-                  <div className="commentaires">
-                    <div className="img-p">
-                      <img src="./src/image/person4.jpeg" alt="Person" className="img-p" />
-                    </div>
-                    <span aria-label="Wave"></span> Bienvenue sur le tableau <br /> de bord, pouvez-vous <br />enregistrer  votre mot de passe ?
-                  </div>
-                  <div className="commentaires">
-                    <div className="img-p">
-                      <img src="./src/image/person5.jpeg" alt="Person" className="img-p" />
-                    </div>
-                    <span aria-label="Wave"></span> Bienvenue sur le tableau <br /> de bord, pouvez-vous <br />enregistrer  votre mot de passe ?
-                  </div>
-                  <div className="commentaires">
-                    <div className="img-p">
-                      <img src="./src/image/person6.jpeg" alt="Person" className="img-p" />
-                    </div>
-                    <span aria-label="Wave"></span> Bienvenue sur le tableau <br /> de bord, pouvez-vous <br />enregistrer  votre mot de passe ?
-                  </div>
-                  <div className="commentaires">
-                    <div className="img-p">
-                      <img src="./src/image/person7.jpeg" alt="Person" className="img-p" />
-                    </div>
-                    <span aria-label="Wave"></span> Bienvenue sur le tableau <br /> de bord, pouvez-vous <br />enregistrer  votre mot de passe ?
-                  </div>
+                 
                 </div>
               )}
             </div>
@@ -250,14 +185,18 @@ function Store() {
           </div>
         </header>
 
-        <section >
+        <section>
           <h4>Store</h4>
           <div className="store-products">
             {products.map((product) => (
-              <div className="product" key={product.id}>
-                <img src={product.image} alt={product.name} className="product-image" />
-                <h5>{product.name}</h5>
-                <p className="price">{product.price}</p>
+              <div className="product-store" key={product.id}>
+                <img
+                  src={product.images[0]}
+                  alt={product.title}
+                  className="product-image"
+                />
+                <h5>{shortenTitle(product.title)}</h5>
+                <p className="price">${product.price}</p>
                 <p className="stock">In stock: {product.stock}</p>
                 <button
                   className={`buy-button ${product.stock === 0 ? "out-of-stock" : ""}`}
@@ -267,73 +206,31 @@ function Store() {
                 >
                   {product.stock === 0 ? "Out of Stock" : "Buy Now"}
                 </button>
-                <button className="manage-content-button" onClick={() => handleDeleteProduct(product.id)}>
+                <button
+                  className="manage-content-button"
+                  onClick={() => handleDeleteProduct(product.id)}
+                >
                   Manage Content
                 </button>
               </div>
             ))}
           </div>
 
-          <div className="create-product-section">
-            {createMode ? (
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  handleCreateProduct();
-                }}
-                className="create-product-form"
-              >
-                <input
-                  type="text"
-                  placeholder="Nom du produit"
-                  value={newProduct.name}
-                  onChange={(e) =>
-                    setNewProduct({ ...newProduct, name: e.target.value })
-                  }
-                />
-                <input
-                  type="text"
-                  placeholder="Prix"
-                  value={newProduct.price}
-                  onChange={(e) =>
-                    setNewProduct({ ...newProduct, price: e.target.value })
-                  }
-                />
-                <input
-                  type="number"
-                  placeholder="Stock"
-                  value={newProduct.stock}
-                  onChange={(e) =>
-                    setNewProduct({ ...newProduct, stock: +e.target.value })
-                  }
-                />
-                <input
-                  type="text"
-                  placeholder="URL de l'image"
-                  value={newProduct.image}
-                  onChange={(e) =>
-                    setNewProduct({ ...newProduct, image: e.target.value })
-                  }
-                />
-                <button className="create-btn" type="submit">Créer</button>
-                <button className="skip-btn" type="button" onClick={() => setCreateMode(false)}>
-                  Annuler
-                </button>
-              </form>
-            ) : (
-              <button onClick={() => setCreateMode(true)} className="create-button">
-                Create
-              </button>
-            )}
-          </div>
-
           {confirmationVisible && currentProduct && (
             <div className="confirmation">
-              <p>Êtes-vous sûr de vouloir acheter {currentProduct.name} ?</p>
+              <p className="confirm">Êtes-vous sûr de vouloir acheter {currentProduct.title} ?</p>
               <button onClick={confirmPurchase} className="oui-btn">Oui</button>
               <button onClick={cancelPurchase} className="non-btn">Non</button>
             </div>
           )}
+
+          {hasMore && !loading && (
+            <button onClick={() => setOffset(offset + 8)} className="load-more">
+              Load More
+            </button>
+          )}
+
+          {loading && <p>Loading...</p>}
         </section>
       </main>
     </div>

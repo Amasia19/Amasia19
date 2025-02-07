@@ -1,9 +1,92 @@
-import React, { useState } from "react";
+import React, { useState,useEffect ,useRef } from "react";
 import "../style/Dashboard.scss";
 import { Link, useLocation } from "react-router-dom";
 import ChartsOverviewDemo from "./data";
 import Pie from "./Graph2";
 import BasicLineChart from "./Graph3";
+
+type Product = {
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+  images: string;
+  category: string;
+  stock: number;
+};
+
+type ProductsResponse = {
+  products: Product[];
+};
+
+
+
+const PhoneSearch = () => {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [visibleProducts, setVisibleProducts] = useState<Product[]>([]);
+  const [hasMore, setHasMore] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [offset, setOffset] = useState(0); 
+  const shortenTitle = (title: string) => title.split(" ").slice(0, 2).join(" ");
+ 
+
+  useEffect(() => {
+    if (loading) return;  
+    setLoading(true);
+    fetch(`https://dummyjson.com/products/search?q=phone&limit=10&skip=${offset}`)
+      .then(response => response.json())
+      .then((data: ProductsResponse) => {
+        setProducts(prev => [...prev, ...data.products]);
+        setVisibleProducts(prev => [...prev, ...data.products]);
+        setHasMore(data.products.length === 5); products
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error("Erreur:", error);
+        setLoading(false);
+      });
+  }, [offset]);
+
+  const handleScroll = () => {
+    if (!scrollRef.current) return;
+
+    const bottom = scrollRef.current.scrollHeight === scrollRef.current.scrollTop + scrollRef.current.clientHeight;
+    if (bottom && hasMore && !loading) {
+      setOffset(prev => prev + 5); 
+    }
+  };
+
+  return (
+    <div 
+      className="products" 
+      ref={scrollRef} 
+      onScroll={handleScroll} 
+      style={{ maxHeight: '500px', overflowY: 'auto' }}
+    >
+      {visibleProducts.map((product) => (
+        <div className="product" key={product.id}>
+          <div className="place-img">
+          <img src={product.images[0]} alt={product.title} className="api-img" loading="lazy" />
+          </div>
+          <div className="pgh-card">
+            <p>{shortenTitle(product.title)}</p>
+            <p className="prix">{product.price} Ar</p>
+          </div>
+          <div className="voir">
+            <p className="lien">
+              <Link to="/produit">Voir</Link>
+            </p>
+            <Link to="/produit"><img src="./src/image/Arrow .svg" alt="Arrow" /></Link>
+          </div>
+        </div>
+      ))}
+      {loading && <p>Loading more...</p>} 
+    </div>
+  );
+};
+
+
 
 function Dashboard() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -187,7 +270,7 @@ function Dashboard() {
               <Pie />
               <p className="text-p">Top Product</p>
             </div>
-            <div className="chart">
+            <div className="chart1">
               <BasicLineChart />
               <p className="text-p">Progrès</p>
             </div>
@@ -197,72 +280,8 @@ function Dashboard() {
 
         <section className="sales-list">
           <h2>Liste de vente</h2>
-          <div className="products">
-            <div className="product">
-              <img src="./src/image/laptop.png" alt="" />
-              <div className="pgh-card">
-                <p>12 Laptop</p>
-                <p>12M Ar</p>
-              </div>
-              <div className="voir">
-                <p className="lien">
-                  <Link to="/produit">Voir</Link>
-                </p>
-                <Link to="/produit"><img src="./src/image/Arrow .svg" alt="" /></Link>
-              </div>
-            </div>
-            <div className="product">
-              <img src="./src/image/phone.png" alt="" />
-              <div className="pgh-card">
-                <p>10 phones</p>
-                <p>5M Ar</p>
-              </div>
-              <div className="voir">
-                <p className="lien">
-                  <Link to="/produit">Voir</Link>
-                </p>
-                <Link to="/produit"><img src="./src/image/Arrow .svg" alt="" /></Link>
-              </div>
-            </div>
-            <div className="product">
-              <img src="./src/image/casque.png" alt="" />
-              <div className="pgh-card">
-                <p>15Casques</p>
-                <p>100000 Ar</p>
-              </div>
-              <div className="voir">
-                <p className="lien">
-                  <Link to="/produit">Voir</Link>
-                </p>
-                <Link to="/produit"><img src="./src/image/Arrow .svg" alt="" /></Link>
-              </div>
-            </div>
-            <div className="product">
-              <img src="./src/image/ecouteur.png" alt="" />
-              <div className="pgh-card">
-                <p>20Écouteurs</p>
-                <p>200000 Ar</p>
-              </div>
-              <div className="voir">
-                <p className="lien">
-                  <Link to="/produit">Voir</Link>
-                </p>
-                <Link to="/produit"><img src="./src/image/Arrow .svg" alt="" /></Link>
-              </div>
-            </div>
-            <div className="product">
-              <img src="./src/image/sub.png" alt="" />
-              <div className="pgh-card">
-                <p>8 Sub</p>
-                <p>1M Ar</p>
-              </div>
-              <div className="voir">
-                <p className="lien">
-                  <Link to="/produit">Voir</Link>
-                </p>
-                <Link to="/produit"><img src="./src/image/Arrow .svg" alt="" /></Link>
-              </div>
-            </div>
+         <div>
+          <PhoneSearch />
           </div>
         </section>
       </main>

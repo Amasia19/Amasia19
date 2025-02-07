@@ -71,7 +71,7 @@ function Client() {
   const toggleCommentaires = () => {
     setCommentairesOpen(!commentairesOpen);
   };
-
+  
   const handleAmountClick = (id: number) => {
     
     setAmounts((prevAmounts) => ({
@@ -79,7 +79,7 @@ function Client() {
       [id]: !prevAmounts[id], 
     }));
   };
-
+  const isActive = (path: any) => location.pathname === path;
   return (
     <div className="dashboard">
       <aside className="sidebar">
@@ -100,11 +100,11 @@ function Client() {
               <img src="./src/image/produit.svg" alt="" />
               <Link to="/produit">Produit</Link>
             </li>
-            <li>
+            <li className={isActive("/client") ? "active" : ""}>
               <img src="./src/image/clients.svg" alt="" />
               <Link to="/client">Client</Link>
             </li>
-            <li>
+            <li className={isActive("/store") ? "active" : ""}>
               <img src="./src/image/store.svg" alt="" />
               <Link to="/store">Store</Link>
             </li>

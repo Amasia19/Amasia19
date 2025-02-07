@@ -16,8 +16,8 @@ const xLabels = [
 export default function BasicLineChart() {
   return (
     <LineChart
-      width={370}
-      height={300}
+      width={290}
+      height={200}
     
       series={[
         { data: uData, label: 'Laptop', area: true, stack: 'total', showMark: false ,color: '#d1c40c'},
