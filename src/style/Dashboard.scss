@@ -20,6 +20,11 @@
   margin-top: 20px;
 }
 
+.api-img {
+  width: 100px;
+  height: 100px;
+}
+
 .profile {
   text-align: center;
   margin-bottom: 2rem;
@@ -40,8 +45,13 @@
 
 .sidebar {
   width: 250px;
-  background-color: #202020;
+  height: 100vh;
   padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 
 .sidebar ul {
@@ -55,7 +65,7 @@
   color: $thirdcolor;
   cursor: pointer;
   @include border-radius(10px);
-  background:$secondcolor;
+  background: $secondcolor;
   display: flex;
   align-items: center;
   height: 50px;
@@ -66,29 +76,45 @@
   margin-left: 10px;
   text-decoration: none;
   color: $thirdcolor;
-  
+
 }
 
 .sidebar ul li.active {
- background: $primarycolor;
+  background: $primarycolor;
 }
 
 .sidebar ul li:hover {
-background:$primarycolor;
+  background: $primarycolor;
 }
 
 .main-content {
   display: flex;
   flex-direction: column;
-  width: 81vw;
+  width: 80vw;
   height: 100vh;
+  margin-left: 250px;
+  margin-top: 90px;
+
+
+}
+
+.place-img {
+  background-color: rgba(91, 99, 104, 0.637);
+  width: 150px;
+  border-radius: 5px;
+  margin-left: 15px;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   padding: 1rem;
-  background-color: #1f1f1f;
+  background-color: #0f1720;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 82%;
+  z-index: 100;
 }
 
 .search-bar {
@@ -115,19 +141,36 @@ background:$primarycolor;
   @include display;
 }
 
+.chart1 {
+  width: 314px;
+  height: 189px;
+  @include background-color(#3b8b874b);
+  border-radius: 8px;
+  @include display;
+
+}
+
+
+
 .products {
   @include display(row, space-around, center, unset);
   flex-wrap: wrap;
   padding-top: 20px;
+  overflow-y: auto;
+  scrollbar-color: rgb(51, 116, 153) rgb(8, 8, 8);
+  
+
 }
 
 .product {
-  @include background-color(#000000);
-  width: 184px;
+  @include background-color(#000000c9);
+  width: 180px;
   height: 219px;
   @include border-radius(8px);
   text-align: center;
   padding-top: 15px;
+  margin-bottom: 20px
+  
 }
 
 .pgh-card {
@@ -141,9 +184,10 @@ background:$primarycolor;
 .voir {
   @include display(row, unset, unset, unset);
   gap: 10px;
-  margin-left: 50px;
+  margin-left: 100px;
   margin-top: 10px;
   width: 30px;
+  
 }
 
 .menu-container {
@@ -205,11 +249,12 @@ background:$primarycolor;
   @include display(row, unset, unset, unset);
   gap: 20px;
   align-items: center;
-}
-.profil-bar img{
+
+
+.profil-bar img {
   cursor: pointer;
 }
-
+}
 .profil-img {
   width: 50px;
   height: 50px;
@@ -274,7 +319,7 @@ h2 {
   padding: 16px;
   color: #000000;
   font-size: 14px;
-  
+
 }
 
 .commentaires {
@@ -282,7 +327,7 @@ h2 {
   border-bottom: 1px solid #3d3c3c;
   display: flex;
   align-items: center;
- 
+
 }
 
 .commentaires span {
@@ -306,4 +351,7 @@ h3 {
 
 .text-p {
   margin-bottom: 5px;
+}
+.prix{
+  color: rgb(0, 140, 255);
 }
