@@ -23,7 +23,9 @@
 .api-img {
   width: 100px;
   height: 100px;
+  
 }
+
 
 .profile {
   text-align: center;
@@ -52,6 +54,7 @@
   left: 0;
   right: 0;
   z-index: 1000;
+  background: #00000060;
 }
 
 .sidebar ul {
@@ -91,18 +94,22 @@
   display: flex;
   flex-direction: column;
   width: 80vw;
-  height: 100vh;
+  height: 805px;
   margin-left: 250px;
   margin-top: 90px;
-
+//  background: linear-gradient(1deg, rgb(108, 122, 25) 0%, rgb(53, 94, 45) 61%, rgb(49, 141, 121) 79%);
 
 }
 
 .place-img {
-  background-color: rgba(91, 99, 104, 0.637);
+  background: linear-gradient(1deg, rgb(25, 64, 122) 0%, rgb(165, 175, 163) 61%, rgb(49, 141, 121) 79%);
   width: 150px;
   border-radius: 5px;
   margin-left: 15px;
+}
+.place-img:hover {
+  // background: rgb(16, 16, 148);
+   background: linear-gradient(1deg, rgb(25, 64, 122) 0%, rgb(165, 175, 163) 61%, rgb(49, 141, 121) 79%);
 }
 
 .header {
@@ -113,8 +120,9 @@
   position: fixed;
   top: 0;
   right: 0;
-  width: 82%;
+  width: 81.5%;
   z-index: 100;
+ 
 }
 
 .search-bar {
@@ -136,7 +144,7 @@
 .chart {
   width: 314px;
   height: 189px;
-  @include background-color(#3b8b874b);
+  @include background-color(#3aaca64b);
   border-radius: 8px;
   @include display;
 }
@@ -147,7 +155,7 @@
   @include background-color(#3b8b874b);
   border-radius: 8px;
   @include display;
-
+  // background: rgb(23, 74, 107);
 }
 
 
@@ -163,7 +171,7 @@
 }
 
 .product {
-  @include background-color(#000000c9);
+ background: #000000;
   width: 180px;
   height: 219px;
   @include border-radius(8px);
@@ -271,6 +279,7 @@ h2 {
 .out {
   display: flex;
   gap: 5px;
+  align-items: center;
 }
 
 .lien a {
