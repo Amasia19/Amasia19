@@ -118,7 +118,7 @@ function Produit() {
   const t = translations[language];
   const isActive = (path: any) => location.pathname === path;
 
-
+  
   return (
     <div className="dashboard">
       <aside className="sidebar">
@@ -264,9 +264,18 @@ function Produit() {
                     </li>
                     <li className="out">
                       <img src="./src/image/out.svg" alt={t.deconnexion} className="icon-log" />
-                      <p className="p-out">
-                        <Link to="/login">{t.deconnexion}</Link>
-                      </p>
+                      <p
+  className="p-out"
+  onClick={() => {
+    if (window.confirm("Êtes-vous sûr de vouloir vous déconnecter ?")) {
+    
+      window.location.href = "/login";
+    }
+  }}
+>
+  Se déconnecter
+</p>
+
                     </li>
                   </ul>
                 </div>
