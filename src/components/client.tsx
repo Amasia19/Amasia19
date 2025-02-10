@@ -219,9 +219,15 @@ function Client() {
                     </li>
                     <li className="out">
                       <img src="./src/image/out.svg" alt="Déconnexion" className="icon-log" />
-                      <p className="p-out" onClick={() => alert("Êtes-vous sûr de vouloir vous déconnecter ?")}>
-                        <Link to="/login">Se déconnecter</Link>
-                      </p>
+                     <p className="p-out" onClick={() => {
+            if (window.confirm("Êtes-vous sûr de vouloir vous déconnecter ?")) {
+         window.location.href = "/login";
+    }
+  }}
+>
+  Se déconnecter
+</p>
+
                     </li>
                   </ul>
                 </div>
