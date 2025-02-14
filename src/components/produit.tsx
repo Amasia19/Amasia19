@@ -31,7 +31,8 @@ function Produit() {
     category: "",
     stock: 0,
   });
-
+ 
+  
   const translations = {
     fr: {
       produits: "Produits",
@@ -140,6 +141,7 @@ function Produit() {
       console.error("Erreur lors de la création du produit :", error);
     }
   };
+ 
   const t = translations[language];
   const isActive = (path: any) => location.pathname === path;
 
