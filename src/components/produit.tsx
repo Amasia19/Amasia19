@@ -24,6 +24,13 @@ function Produit() {
   const [language, setLanguage] = useState("fr");
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [newProduct, setNewProduct] = useState({
+    title: "",
+    price: 0,
+    category: "",
+    stock: 0,
+  });
 
   const translations = {
     fr: {
@@ -115,6 +122,24 @@ function Produit() {
     setLanguage(event.target.value);
   };
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setNewProduct((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const createProduct = async () => {
+    try {
+      const response = await axios.post("https://dummyjson.com/products/add", {
+        ...newProduct,
+        images: ["https://via.placeholder.com/150"],
+      });
+
+      setProducts([...products, response.data]);
+      setIsModalOpen(false);
+    } catch (error) {
+      console.error("Erreur lors de la création du produit :", error);
+    }
+  };
   const t = translations[language];
   const isActive = (path: any) => location.pathname === path;
 
@@ -286,10 +311,25 @@ function Produit() {
 
         <section>
          
-          <div className="flex-btn">
-          <h2>{t.produits}</h2>
-            <button className="create-button">{t.create}</button>
+        <div className="flex-btn">
+            <h2>{t.produits}</h2>
+            <button onClick={() => setIsModalOpen(true)} className="create-button">{t.create}</button>
           </div>
+
+          {isModalOpen && (
+            <div className="modal">
+              <div className="modal-content">
+                <h2>{t.createProduct}</h2>
+                <input type="text" name="title" placeholder={t.nom} onChange={handleInputChange} />
+                <input type="number" name="price" placeholder={t.prix} onChange={handleInputChange} />
+                <input type="text" name="category" placeholder={t.type} onChange={handleInputChange} />
+                <input type="number" name="stock" placeholder={t.stock} onChange={handleInputChange} />
+                <button onClick={createProduct} className="add-product-btn">save</button>
+                <button onClick={() => setIsModalOpen(false)} className="cancel-btn">cancel</button>
+              </div>
+            </div>
+          )}
+
           <table className="product-table">
             <thead>
               <tr>

@@ -78,7 +78,17 @@
   .no-stock {
     color: rgb(7, 7, 7);
     font-weight: bold;
+
   }
+  .modal-content{
+    margin: 5px 0px 0px 30px;
+  }
+   input{
+    border: 1px solid blue;
+    background: #bab7c0;
+    height: 50px;
+    padding-left: 10px;
+   }
 
   .create-button {
     margin-top: 5px;
