@@ -32,8 +32,29 @@ function Produit() {
     stock: 0,
   });
  
+  type TypeTranslations = {
+    [key: string]: {
+      produits: string;
+      dashboard: string;
+      rechercher: string;
+      parametres: string;
+      apropos: string;
+      laptop?: string;
+      langue: string;
+      deconnexion: string;
+      create: string;
+      produit: string;
+      client: string;
+      nom: string;
+      prix: string;
+      type: string;
+      stock: string;
+      noStock: string;
+      store: string;
+    };
+  };
   
-  const translations = {
+  const translations:TypeTranslations = {
     fr: {
       produits: "Produits",
       dashboard: "Tableau de bord",
@@ -142,7 +163,7 @@ function Produit() {
     }
   };
  
-  const t = translations[language];
+  const t = translations[language as keyof TypeTranslations];
   const isActive = (path: any) => location.pathname === path;
 
   
@@ -321,7 +342,6 @@ function Produit() {
           {isModalOpen && (
             <div className="modal">
               <div className="modal-content">
-                <h2>{t.createProduct}</h2>
                 <input type="text" name="title" placeholder={t.nom} onChange={handleInputChange} />
                 <input type="number" name="price" placeholder={t.prix} onChange={handleInputChange} />
                 <input type="text" name="category" placeholder={t.type} onChange={handleInputChange} />
