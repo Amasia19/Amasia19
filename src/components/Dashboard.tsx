@@ -115,7 +115,7 @@ function Dashboard() {
         <img src="/logos.svg" alt="" className="logo" />
         </Link>
         <div className="profile">
-          <img src="./src/image/Profil.png" alt="Profile" className="profile-pic" />
+          <img src="/Profil.png" alt="Profile" className="profile-pic" />
           <h3>Dashboard</h3>
         </div>
         <nav>
