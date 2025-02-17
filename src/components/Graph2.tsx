@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState} from 'react';
 import { PieChart } from '@mui/x-charts/PieChart';
 
 const data = [
@@ -10,7 +10,7 @@ const data = [
 ];
 
 export default function AnimatedPieChart() {
-  const [angle, setAngle] = useState(0);
+  const [angle] = useState(0);
 
   // useEffect(() => {
   //   const interval = setInterval(() => {

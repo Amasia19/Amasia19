@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import  { useState } from 'react';
 import { BarChart } from '@mui/x-charts/BarChart';
 
 export default function ChartsOverviewDemo() {
-  const [data, setData] = useState([
+  const [data] = useState([
     { data: [25, 23], color: '#bdbaba' },
     { data: [40, 30], color: '#d1c40c' },
     { data: [60, 60], color: '#c51f9c' },

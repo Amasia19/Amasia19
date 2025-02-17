@@ -1,6 +1,6 @@
 import "../style/client.scss";
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import { useState } from "react";
 
 type ClientType = {
   id: number;
