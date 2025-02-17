@@ -1,5 +1,9 @@
 // Chart.js
 import "./Chart.scss";
+type Chart = {
+  title:string,
+  imageSrc:string,
+}
 
 function Chart({ title, imageSrc, }) {
   return (
