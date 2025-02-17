@@ -53,7 +53,7 @@ const PhoneSearch = () => {
 
     const bottom = scrollRef.current.scrollHeight === scrollRef.current.scrollTop + scrollRef.current.clientHeight;
     if (bottom && hasMore && !loading) {
-      setOffset(prev => prev + 5); 
+      setOffset(prev => prev + 4); 
     }
   };
 
