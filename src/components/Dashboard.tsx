@@ -111,7 +111,9 @@ function Dashboard() {
   return (
     <div className="dashboard">
       <aside className="sidebar">
-        <Link to="/dashboard"><img src="/public/Ellipse 2.svg" alt="" className="logo" /></Link>
+        <Link to="/dashboard">
+        <img src="/Ellipse 2.svg" alt="" className="logo" />
+        </Link>
         <div className="profile">
           <img src="./src/image/Profil.png" alt="Profile" className="profile-pic" />
           <h3>Dashboard</h3>
