@@ -27,7 +27,7 @@ function Login() {
   return (
     <div className="login-screen">
       <form onSubmit={handleSubmit} className="login-form">
-        <img src="./src/image/Ellipse 2.svg" alt="Logo" className="logo" />
+        <img src="/logos.svg" alt="Logo" className="logo" />
         <input
           type="email"
           placeholder="Email"
