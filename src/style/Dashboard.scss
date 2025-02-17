@@ -54,7 +54,7 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: #00000060;
+  background:#1E1E2E;
 }
 
 .sidebar ul {
@@ -94,10 +94,10 @@
   display: flex;
   flex-direction: column;
   width: 80vw;
-  height: 805px;
+  height: 100%;
   margin-left: 250px;
   margin-top: 90px;
-//  background: linear-gradient(1deg, rgb(108, 122, 25) 0%, rgb(53, 94, 45) 61%, rgb(49, 141, 121) 79%);
+
 
 }
 
@@ -116,7 +116,7 @@
   display: flex;
   justify-content: space-between;
   padding: 1rem;
-  background-color: #0f1720;
+  background-color:#1E1E2E;
   position: fixed;
   top: 0;
   right: 0;
@@ -171,7 +171,8 @@
 }
 
 .product {
- background: #2f3131;
+  border: 1px solid #dfc116;
+ background: #2A2A3A;
   width: 180px;
   height: 219px;
   @include border-radius(8px);
@@ -240,7 +241,7 @@
 .place-icon {
   width: 50px;
   height: 37px;
-  @include background-color(rgb(43, 94, 141));
+  background-color:rgba(34, 34, 199, 0.541);
   @include border-radius(0px 20px 20px 0px);
   outline: none;
   border: none;
@@ -248,8 +249,8 @@
 }
 
 .icon-search {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   margin: 8px 10px 0px 5px;
 }
 
@@ -362,5 +363,5 @@ h3 {
   margin-bottom: 5px;
 }
 .prix{
-  color: rgb(0, 140, 255);
+  color:#E6C200;
 }
