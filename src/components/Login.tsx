@@ -11,8 +11,8 @@ function Login() {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
 
-    if (!email || !password) return; 
-    setIsLoading(true); 
+    if (!email || !password) return;
+    setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
       navigate("/dashboard");
@@ -55,7 +55,7 @@ function Login() {
           <span className="text">Continue avec Google</span>
         </button>
         <button className="apple-login" disabled={isLoading}>
-          <img src="./src/image/apple.svg" alt="" className="google" />
+          <img src="/apple.svg" alt="" className="google" />
           Continue avec Apple
         </button>
       </form>
