@@ -77,7 +77,7 @@ const PhoneSearch = () => {
             <p className="lien">
               <Link to="/produit">Voir</Link>
             </p>
-            <Link to="/produit"><img src="./public/Arrow .svg" alt="Arrow" /></Link>
+            <Link to="/produit"><img src="/Arrow .svg" alt="Arrow" /></Link>
           </div>
         </div>
       ))}
