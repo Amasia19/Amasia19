@@ -51,7 +51,7 @@ function Login() {
           onClick={handleGoogleLogin}
           disabled={isLoading}
         >
-          <img src="./src/image/google.svg" alt="Google" className="google" />
+          <img src="/google.svg" alt="Google" className="google" />
           <span className="text">Continue avec Google</span>
         </button>
         <button className="apple-login" disabled={isLoading}>
