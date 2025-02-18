@@ -121,7 +121,7 @@ function Dashboard() {
         <nav>
           <ul>
             <li className={isActive("/Dashboard") ? "active" : ""}>
-              <img src="./src/image/graph.svg" alt="Graphique" />
+              <img src="/graph.svg" alt="Graphique" />
               <Link to="/Dashboard">Dashboard</Link>
             </li>
             <li className={isActive("/produit") ? "active" : ""}>
