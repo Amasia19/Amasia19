@@ -123,28 +123,28 @@ function Store() {
     <div className="dashboard">
       <aside className="sidebar">
         <Link to="/dashboard">
-          <img src="./src/image/Ellipse 2.svg" alt="Logo" className="logo" />
+          <img src="/logos.svg" alt="Logo" className="logo" />
         </Link>
         <div className="profile">
-                 <img src="./src/image/Profil.png" alt="Profile" className="profile-pic" />
+                 <img src="/Profil.png" alt="Profile" className="profile-pic" />
                  <h3>Dashboard</h3>
                </div>
                <nav>
                  <ul>
                    <li className={isActive("/Dashboard") ? "active" : ""}>
-                     <img src="./src/image/graph.svg" alt="Graphique" />
+                     <img src="/graph.svg" alt="Graphique" />
                      <Link to="/Dashboard">Dashboard</Link>
                    </li>
                    <li className={isActive("/produit") ? "active" : ""}>
-                     <img src="./src/image/produit.svg" alt="Produit" />
+                     <img src="/produit.svg" alt="Produit" />
                      <Link to="/produit">Produit</Link>
                    </li>
                    <li className={isActive("/client") ? "active" : ""}>
-                     <img src="./src/image/clients.svg" alt="Clients" />
+                     <img src="/clients.svg" alt="Clients" />
                      <Link to="/client">Client</Link>
                    </li>
                    <li className={isActive("/store") ? "active" : ""}>
-                     <img src="./src/image/store.svg" alt="Store" />
+                     <img src="/store.svg" alt="Store" />
                      <Link to="/store">Store</Link>
                    </li>
                  </ul>
@@ -156,13 +156,13 @@ function Store() {
                <div className="search">
                  <input type="Search" placeholder="Rechercher" className="search-bar" />
                  <button className="place-icon">
-                   <img src="./src/image/search.svg" alt="Rechercher" className="icon-search" />
+                   <img src="/search.svg" alt="Rechercher" className="icon-search" />
                  </button>
                </div>
      
                <div className="profil-bar">
                  <div onClick={toggleNotifications} style={{ position: "relative" }}>
-                   <img src="./src/image/notification.svg" alt="Notification" />
+                   <img src="/notification.svg" alt="Notification" />
                    {notificationsOpen && (
                      <div className="notifications-popup">
                        <div className="notification">
@@ -178,65 +178,65 @@ function Store() {
                    )}
                  </div>
                  <div onClick={toggleCommentaires} style={{ position: "relative" }}>
-                   <img src="./src/image/commentaire.svg" alt="Commentaires" />
+                   <img src="/commentaire.svg" alt="Commentaires" />
                    {commentairesOpen && (
                      <div className="commentaires-popup">
                        <div className="commentaires">
                          <div className="img-p">
-                           <img src="./src/image/person.jpeg" alt="Person" className="img-p" />
+                           <img src="/person.jpeg" alt="Person" className="img-p" />
                          </div>
                          <span role="img" aria-label="Wave"></span> J'adore cette site 👋
                        </div>
                        <div className="commentaires">
                          <div className="img-p">
-                           <img src="./src/image/person1.jpeg" alt="Person" className="img-p" />
+                           <img src="/person1.jpeg" alt="Person" className="img-p" />
                          </div>
                          <span aria-label="Wave"></span>"L'interface est tellement fluide et bien pensée !"
                        </div>
                        <div className="commentaires">
                          <div className="img-p">
-                           <img src="./src/image/person2.jpeg" alt="Person" className="img-p" />
+                           <img src="/person2.jpeg" alt="Person" className="img-p" />
                          </div>
                          <span aria-label="Wave"></span> "Ce tableau de bord m'aide à avoir une vision complète et rapide de mes objectifs.
                        </div>
                        <div className="commentaires">
                          <div className="img-p">
-                           <img src="./src/image/person3.jpeg" alt="Person" className="img-p" />
+                           <img src="/person3.jpeg" alt="Person" className="img-p" />
                          </div>
                          <span aria-label="Wave"></span> Bienvenue sur le tableau <br /> de bord, pouvez-vous <br />enregistrer  votre mot de passe ?
                        </div>
                        <div className="commentaires">
                          <div className="img-p">
-                           <img src="./src/image/person4.jpeg" alt="Person" className="img-p" />
+                           <img src="/person4.jpeg" alt="Person" className="img-p" />
                          </div>
                          <span aria-label="Wave"></span> Bienvenue sur le tableau <br /> de bord, pouvez-vous <br />enregistrer  votre mot de passe ?
                        </div>
                        <div className="commentaires">
                          <div className="img-p">
-                           <img src="./src/image/person5.jpeg" alt="Person" className="img-p" />
+                           <img src="/person5.jpeg" alt="Person" className="img-p" />
                          </div>
                          <span aria-label="Wave"></span> Bienvenue sur le tableau <br /> de bord, pouvez-vous <br />enregistrer  votre mot de passe ?
                        </div>
                        <div className="commentaires">
                          <div className="img-p">
-                           <img src="./src/image/person6.jpeg" alt="Person" className="img-p" />
+                           <img src="/person6.jpeg" alt="Person" className="img-p" />
                          </div>
                          <span aria-label="Wave"></span> Bienvenue sur le tableau <br /> de bord, pouvez-vous <br />enregistrer  votre mot de passe ?
                        </div>
                        <div className="commentaires">
                          <div className="img-p">
-                           <img src="./src/image/person7.jpeg" alt="Person" className="img-p" />
+                           <img src="/person7.jpeg" alt="Person" className="img-p" />
                          </div>
                          <span aria-label="Wave"></span> Bienvenue sur le tableau <br /> de bord, pouvez-vous <br />enregistrer  votre mot de passe ?
                        </div>
                      </div>
                    )}
                  </div>
-                 <img src="./src/image/Profil.png" alt="Profile" className="profil-img" />
+                 <img src="/Profil.png" alt="Profile" className="profil-img" />
      
                  <div className="menu-container">
                    <img
-                     src="./src/image/menu.svg"
+                     src="/menu.svg"
                      alt="Menu"
                      className="menu-icon"
                      onClick={toggleMenu}
@@ -245,19 +245,19 @@ function Store() {
                      <div className="menu-dropdown">
                        <ul>
                          <li className="out">
-                           <img src="./src/image/setting.svg" alt="Paramètres" />
+                           <img src="/setting.svg" alt="Paramètres" />
                            Paramètres
                          </li>
                          <li className="out">
-                           <img src="./src/image/About.svg" alt="À propos" />
+                           <img src="/About.svg" alt="À propos" />
                            À propos
                          </li>
                          <li className="out">
-                           <img src="./src/image/langue.svg" alt="Langue" />
+                           <img src="/langue.svg" alt="Langue" />
                            Langue
                          </li>
                          <li className="out">
-                           <img src="./src/image/out.svg" alt="Déconnexion" className="icon-log" />
+                           <img src="/out.svg" alt="Déconnexion" className="icon-log" />
                            <p
   className="p-out"
   onClick={() => {

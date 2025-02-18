@@ -225,7 +225,7 @@ function Dashboard() {
 
             <div className="menu-container">
               <img
-                src="./src/image/menu.svg"
+                src="/menu.svg"
                 alt="Menu"
                 className="menu-icon"
                 onClick={toggleMenu}

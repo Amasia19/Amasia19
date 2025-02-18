@@ -171,29 +171,29 @@ function Produit() {
     <div className="dashboard">
       <aside className="sidebar">
         <Link to="/dashboard">
-          <img src="./src/image/Ellipse 2.svg" alt="" className="logo" />
+          <img src="/logos.svg" alt="" className="logo" />
         </Link>
         <div className="profile">
-          <img src="./src/image/produit.jpeg" alt="Profile" className="profile-pic" />
+          <img src="/produit.jpeg" alt="Profile" className="profile-pic" />
           <h3>{t.produits}</h3>
         </div>
         <nav>
           <ul>
             <li>
-              <img src="./src/image/graph.svg" alt="" />
+              <img src="/graph.svg" alt="" />
               <Link to="/Dashboard">{t.dashboard}</Link>
             </li>
             
             <li className={isActive("/produit") ? "active" : ""}>
-              <img src="./src/image/produit.svg" alt="" />
+              <img src="/produit.svg" alt="" />
               <Link to="/produit">{t.produits}</Link>
             </li>
             <li>
-              <img src="./src/image/clients.svg" alt="" />
+              <img src="/clients.svg" alt="" />
               <Link to="/client">{t.client}</Link>
             </li>
             <li>
-              <img src="./src/image/store.svg" alt="" />
+              <img src="/store.svg" alt="" />
               <Link to="/store">{t.store}</Link>
             </li>
           </ul>
@@ -205,13 +205,13 @@ function Produit() {
           <div className="search">
             <input type="text" placeholder={t.rechercher} className="search-bar" />
             <button className="place-icon">
-              <img src="./src/image/search.svg" alt={t.rechercher} className="icon-search" />
+              <img src="/search.svg" alt={t.rechercher} className="icon-search" />
             </button>
           </div>
 
           <div className="profil-bar">
             <div onClick={toggleNotifications} style={{ position: "relative" }}>
-              <img src="./src/image/notification.svg" alt="Notification" />
+              <img src="/notification.svg" alt="Notification" />
               {notificationsOpen && (
                 <div className="notifications-popup">
                   <div className="notification">
@@ -227,54 +227,54 @@ function Produit() {
               )}
             </div>
             <div onClick={toggleCommentaires} style={{ position: "relative" }}>
-              <img src="./src/image/commentaire.svg" alt="Commentaires" />
+              <img src="/commentaire.svg" alt="Commentaires" />
               {commentairesOpen && (
                 <div className="commentaires-popup">
                   <div className="commentaires">
                     <div className="img-p">
-                      <img src="./src/image/person.jpeg" alt="Person" className="img-p" />
+                      <img src="/person.jpeg" alt="Person" className="img-p" />
                     </div>
                     <span role="img" aria-label="Wave"></span> J'adore cette site 👋
                   </div>
                   <div className="commentaires">
                     <div className="img-p">
-                      <img src="./src/image/person1.jpeg" alt="Person" className="img-p" />
+                      <img src="/person1.jpeg" alt="Person" className="img-p" />
                     </div>
                     <span aria-label="Wave"></span>"L'interface est tellement fluide et bien pensée !"
                   </div>
                   <div className="commentaires">
                     <div className="img-p">
-                      <img src="./src/image/person2.jpeg" alt="Person" className="img-p" />
+                      <img src="/person2.jpeg" alt="Person" className="img-p" />
                     </div>
                     <span aria-label="Wave"></span> "Ce tableau de bord m'aide à avoir une vision complète et rapide de mes objectifs.
                   </div>
                   <div className="commentaires">
                     <div className="img-p">
-                      <img src="./src/image/person3.jpeg" alt="Person" className="img-p" />
+                      <img src="/person3.jpeg" alt="Person" className="img-p" />
                     </div>
                     <span aria-label="Wave"></span> Bienvenue sur le tableau <br /> de bord, pouvez-vous <br />enregistrer  votre mot de passe ?
                   </div>
                   <div className="commentaires">
                     <div className="img-p">
-                      <img src="./src/image/person4.jpeg" alt="Person" className="img-p" />
+                      <img src="/person4.jpeg" alt="Person" className="img-p" />
                     </div>
                     <span aria-label="Wave"></span> Bienvenue sur le tableau <br /> de bord, pouvez-vous <br />enregistrer  votre mot de passe ?
                   </div>
                   <div className="commentaires">
                     <div className="img-p">
-                      <img src="./src/image/person5.jpeg" alt="Person" className="img-p" />
+                      <img src="/person5.jpeg" alt="Person" className="img-p" />
                     </div>
                     <span aria-label="Wave"></span> Bienvenue sur le tableau <br /> de bord, pouvez-vous <br />enregistrer  votre mot de passe ?
                   </div>
                   <div className="commentaires">
                     <div className="img-p">
-                      <img src="./src/image/person6.jpeg" alt="Person" className="img-p" />
+                      <img src="/person6.jpeg" alt="Person" className="img-p" />
                     </div>
                     <span aria-label="Wave"></span> Bienvenue sur le tableau <br /> de bord, pouvez-vous <br />enregistrer  votre mot de passe ?
                   </div>
                   <div className="commentaires">
                     <div className="img-p">
-                      <img src="./src/image/person7.jpeg" alt="Person" className="img-p" />
+                      <img src="/person7.jpeg" alt="Person" className="img-p" />
                     </div>
                     <span aria-label="Wave"></span> Bienvenue sur le tableau <br /> de bord, pouvez-vous <br />enregistrer  votre mot de passe ?
                   </div>
@@ -282,11 +282,11 @@ function Produit() {
               )}
             </div>
 
-            <img src="./src/image/Profil.png" alt="Profile" className="profil-img" />
+            <img src="/Profil.png" alt="Profile" className="profil-img" />
 
             <div className="menu-container">
               <img
-                src="./src/image/menu.svg"
+                src="/menu.svg"
                 alt="Menu"
                 className="menu-icon"
                 onClick={toggleMenu}
@@ -295,15 +295,15 @@ function Produit() {
                 <div className="menu-dropdown">
                   <ul>
                     <li className="out">
-                      <img src="./src/image/setting.svg" alt={t.parametres} />
+                      <img src="/setting.svg" alt={t.parametres} />
                       {t.parametres}
                     </li>
                     <li className="out">
-                      <img src="./src/image/About.svg" alt={t.apropos} />
+                      <img src="/About.svg" alt={t.apropos} />
                       {t.apropos}
                     </li>
                     <li className="out">
-                      <img src="./src/image/langue.svg" alt={t.langue} />
+                      <img src="/langue.svg" alt={t.langue} />
                       <select onChange={handleLanguageChange} value={language} className="language-select">
                         <option value="fr">Français</option>
                         <option value="en">English</option>
@@ -311,7 +311,7 @@ function Produit() {
                       </select>
                     </li>
                     <li className="out">
-                      <img src="./src/image/out.svg" alt={t.deconnexion} className="icon-log" />
+                      <img src="/out.svg" alt={t.deconnexion} className="icon-log" />
                       <p
   className="p-out"
   onClick={() => {
