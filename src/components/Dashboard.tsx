@@ -125,15 +125,15 @@ function Dashboard() {
               <Link to="/Dashboard">Dashboard</Link>
             </li>
             <li className={isActive("/produit") ? "active" : ""}>
-              <img src="./src/image/produit.svg" alt="Produit" />
+              <img src="/produit.svg" alt="Produit" />
               <Link to="/produit">Produit</Link>
             </li>
             <li className={isActive("/client") ? "active" : ""}>
-              <img src="./src/image/clients.svg" alt="Clients" />
+              <img src="/clients.svg" alt="Clients" />
               <Link to="/client">Client</Link>
             </li>
             <li className={isActive("/store") ? "active" : ""}>
-              <img src="./src/image/store.svg" alt="Store" />
+              <img src="/store.svg" alt="Store" />
               <Link to="/store">Store</Link>
             </li>
           </ul>
