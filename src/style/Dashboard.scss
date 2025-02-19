@@ -55,6 +55,7 @@
   right: 0;
   z-index: 1000;
   background:#1E1E2E;
+  //  background: rgba(15, 15, 15, 0.95);
 }
 
 .sidebar ul {
@@ -116,7 +117,8 @@
   display: flex;
   justify-content: space-between;
   padding: 1rem;
-  background-color:#1E1E2E;
+  // background-color:#1E1E2E;
+  background:black;
   position: fixed;
   top: 0;
   right: 0;
