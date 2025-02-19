@@ -234,19 +234,19 @@ function Dashboard() {
                 <div className="menu-dropdown">
                   <ul>
                     <li className="out">
-                      <img src="./src/image/setting.svg" alt="Paramètres" />
+                      <img src="/setting.svg" alt="Paramètres" />
                       Paramètres
                     </li>
                     <li className="out">
-                      <img src="./src/image/About.svg" alt="À propos" />
+                      <img src="/About.svg" alt="À propos" />
                       À propos
                     </li>
                     <li className="out">
-                      <img src="./src/image/langue.svg" alt="Langue" />
+                      <img src="/langue.svg" alt="Langue" />
                       Langue
                     </li>
                     <li className="out">
-                      <img src="./src/image/out.svg" alt="Déconnexion" className="icon-log" />
+                      <img src="/out.svg" alt="Déconnexion" className="icon-log" />
                       <p className="p-out" onClick={() => {
           if (window.confirm("Êtes-vous sûr de vouloir vous déconnecter ?")) {
            window.location.href = "/login";
